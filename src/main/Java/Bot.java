@@ -10,10 +10,7 @@ import org.telegram.telegrambots.meta.exceptions.TelegramApiException;
 
 
 public class Bot extends TelegramLongPollingBot {
-        //создаем две константы, присваиваем им значения токена и имя бота соответсвтенно
-        //вместо звездочек подставляйте свои данные
-        final private String BOT_TOKEN = "5761711012:AAEAkUKwI8970PyLeGRRKLxikFRN45bYRtQ";
-        final private String BOT_NAME = "@appeal_30day_bot";
+    final private String BOT_NAME = "@appeal_30day_bot";
         Storage storage;
 
         Bot()
@@ -28,6 +25,9 @@ public class Bot extends TelegramLongPollingBot {
 
         @Override
         public String getBotToken() {
+            //создаем две константы, присваиваем им значения токена и имя бота соответсвтенно
+            //вместо звездочек подставляйте свои данные
+            String BOT_TOKEN = "5761711012:AAEAkUKwI8970PyLeGRRKLxikFRN45bYRtQ";
             return BOT_TOKEN;
         }
 
@@ -49,7 +49,7 @@ public class Bot extends TelegramLongPollingBot {
                     outMess.setChatId(chatId);
                     outMess.setText(response);
 
-                    /*// Создание клавиатуры
+                    /* // Создание клавиатуры
                     ReplyKeyboardMarkup keyboardMarkup = new ReplyKeyboardMarkup();
                     keyboardMarkup.setResizeKeyboard(true); // автоматически изменять размер клавиатуры
 
