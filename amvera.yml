@@ -8,4 +8,4 @@ build:
   args: -Dserver.port=80 -Pproduction
 
 run:
-  jarName: BotTelega-1.0-SNAPSHOT.jar
+  jarName: BotTelega.jar
