@@ -5,9 +5,7 @@ meta:
     version: 17
 
 build:
-  build:
-    artifacts:
-      "target/*.jar": /
+  args: -Dserver.port=80 -Pproduction
 
 run:
-  jarName: BotTelega-1.0-SNAPSHOT.jar
+  jarName: bag-end.jar
