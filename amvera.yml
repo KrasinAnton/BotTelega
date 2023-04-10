@@ -1,0 +1,13 @@
+meta:
+  environment: jvm
+  toolchain:
+    name: maven
+    version: 17
+
+build:
+  build:
+    artifacts:
+      "target/*.jar": /
+
+run:
+  jarName: BotTelega-1.0-SNAPSHOT.jar
