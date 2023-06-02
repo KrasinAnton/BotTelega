@@ -11,9 +11,7 @@ public class Storage {
         quoteList = new ArrayList<String>();
         parser("https://citatnica.ru/citaty/mudrye-tsitaty-velikih-lyudej");
     }
-
-    String getRandQuote()
-    {
+    String getRandQuote() {
         //получаем случайное значение в интервале от 0 до самого большого индекса
         int randValue = (int)(Math.random() * quoteList.size());
         //Из коллекции получаем цитату со случайным индексом и возвращаем ее
@@ -31,6 +29,7 @@ public class Storage {
         }
 
         //Получаем группу объектов, обращаясь методом из Jsoup к определенному блоку
+        assert doc != null;
         Elements elQuote = doc.getElementsByClass(classNmae);
 
         //Достаем текст из каждого объекта поочереди и добавляем в наше хранилище
@@ -38,7 +37,6 @@ public class Storage {
             quoteList.add(el.text());
         });
     }
-
     public ArrayList<String> getQuoteList() {
         return quoteList;
     }
