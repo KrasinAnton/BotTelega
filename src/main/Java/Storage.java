@@ -6,9 +6,9 @@ import java.io.IOException;
 import java.util.ArrayList;
 
 public class Storage {
-    private ArrayList<String> quoteList;
+    private final ArrayList<String> quoteList;
     public Storage() {
-        quoteList = new ArrayList<String>();
+        quoteList = new ArrayList<>();
         parser("https://citatnica.ru/citaty/mudrye-tsitaty-velikih-lyudej");
     }
     String getRandQuote() {
@@ -17,9 +17,8 @@ public class Storage {
         //Из коллекции получаем цитату со случайным индексом и возвращаем ее
         return quoteList.get(randValue);
     }
-
     public void parser(String strURL) {
-        String classNmae = "su-note-inner su-u-clearfix su-u-trim";
+        String className = "su-note-inner su-u-clearfix su-u-trim";
         Document doc = null;
         try {
             //Получаем документ нужной нам страницы
@@ -27,17 +26,10 @@ public class Storage {
         } catch (IOException e) {
             e.printStackTrace();
         }
-
         //Получаем группу объектов, обращаясь методом из Jsoup к определенному блоку
         assert doc != null;
-        Elements elQuote = doc.getElementsByClass(classNmae);
-
+        Elements elQuote = doc.getElementsByClass(className);
         //Достаем текст из каждого объекта поочереди и добавляем в наше хранилище
-        elQuote.forEach(el -> {
-            quoteList.add(el.text());
-        });
-    }
-    public ArrayList<String> getQuoteList() {
-        return quoteList;
+        elQuote.forEach(el -> quoteList.add(el.text()));
     }
 }
